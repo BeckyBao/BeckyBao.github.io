@@ -1,0 +1,15 @@
+#right{
+	width:200px;
+	height:auto;
+	float:left;
+	font-family:Arial,Microsoft YaHei,sans-serif;
+		overflow:hidden;
+}
+
+#left{
+	position:relative;
+
+	height:auto;
+	overflow:hidden;
+font-family:serif;
+}
