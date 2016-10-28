@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CPTree, A web-based Phylogenetic Tree Generator using Chloroplast Genomes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet" >
+
+    <!-- Custom styles for this template -->
+    <link href="css/sticky-footer.css" rel="stylesheet">
+
+    <!-- Main CSS by Becky-->
+    <link href="css/beckymain.css" rel="stylesheet">
+	<!--search bar jquery-->
+    <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <script type="text/javascript" src="js/searchbar.js"></script>
+    <script type="text/javascript" src="js/lunbo.js"></script>
+
+
+<!-- Begin page content -->
+
+<div class="container">
+
+
+<div class="page-header">
+    <h1>Chloroplast Database
+        <button id="btnViewNCBI" class="btn btn-xs btn-danger" onclick="window.open('')">
+            <i class="fa fa-external-link" aria-hidden="true"></i>
+        </button>
+    </h1>
+
+    <ol class="breadcrumb">
+        <li><a href="../index.php">Home</a></li>
+        <li class="active">CPDB</li>
+    </ol>
+</div>
+
+    <!--轮播部分-->
+    <div id="Carousel">
+        <ul class="imglist"><!--图片部分-->
+            <li><a href="#"><img src="images/01.gif" alt="picture1"></a></li>
+            <li><a href="#"><img src="images/02.gif" alt="picture2"></a></li>
+            <li><a href="#"><img src="images/03.gif" alt="picture3"></a></li>
+            <li><a href="#"><img src="images/04.gif" alt="picture4"></a></li>
+        </ul>
+   
+        <ul class="infolist"><!--左下文字信息-->
+            <li class="infoOn">Noisy and quiet</li>
+            <li>Green.</li>
+            <li>A little bit red</li>
+            <li>A road.</li>
+        </ul>
+        <ul class="indexlist"><!--右下序号-->
+            <li class="indexOn">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+<!--search bar-->
+
+<div id="search_box">
+    <input class="textbox" id="searchstr" type="text" size="10" name="searchstr" />　
+    <input class="sbttn" id="search_btn" type="button" value="Search" />
+</div>
+
+<div class="insect-list" id="insect-list" style="margin-bottom:20px;">
+
+<div class="fa-hover"><a href="cpdata.php?id=AC_000188.1"><i class='fa fa-folder-o' aria-hidden='true'></i> AC_000188. 1Solanum_lycopersicum_complete</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_000927.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_000927.1 Nephroselmis_olivacea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_000932.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_000932.1 Arabidopsis_thaliana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_001319.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_001319.1 Marchantia_polymorpha</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_001568.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_001568.1 Epifagus_virginiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_001631.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_001631.1 Pinus_thunbergii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_001666.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_001666.2 Zea_mays</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_001865.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_001865.1 Chlorella_vulgaris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_002694.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_002694.1 Lotus_japonicus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_002762.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_002762.1 Triticum_aestivum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_003386.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_003386.1 Psilotum_nudum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_004115.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_004115.1 Chaetosphaeridium_globosum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_004543.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_004543.1 Anthoceros_formosae</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_004561.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_004561.1 Atropa_belladonna</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_004677.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_004677.2 Pinus_koraiensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_004766.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_004766.1 Adiantum_capillus-veneris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_004993.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_004993.1 Calycanthus_floridus_var._glaucus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_005086.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_005086.1 Amborella_trichopoda</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_005087.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_005087.1 Physcomitrella_patens_subsp._patens</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_005353.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_005353.1 Chlamydomonas_reinhardtii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_005878.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_005878.2 Saccharum_hybrid_cultivar_SP-80-3280</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_005973.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_005973.1 Oryza_nivara</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_006050.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_006050.1 Nymphaea_alba</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_006084.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_006084.1 Saccharum_hybrid_cultivar_NCo_310</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_006290.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_006290.1 Panax_ginseng</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_006861.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_006861.1 Huperzia_lucidula</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007144.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007144.1 Cucumis_sativus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007499.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007499.1 Phalaenopsis_aphrodite_subsp._formosana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007500.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007500.1 Nicotiana_sylvestris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007578.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007578.1 Lactuca_sativa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007602.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007602.1 Nicotiana_tomentosiformis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007898.3"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007898.3 Solanum_lycopersicum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007942.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007942.1 Glycine_max</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007943.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007943.1 Solanum_bulbocastanum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007944.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007944.1 Gossypium_hirsutum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007957.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007957.1 Vitis_vinifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_007977.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_007977.1 Helianthus_annuus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008096.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008096.2 Solanum_tuberosum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008097.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008097.1 Chara_vulgaris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008099.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008099.1 Oltmannsiellopsis_viridis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008101.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008101.1 Acutodesmus_obliquus_strain_UTEX_393</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008114.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008114.1 Pseudendoclonium_akinetum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008115.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008115.1 Eucalyptus_globulus_subsp._globulus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008116.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008116.1 Staurastrum_punctulatum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008117.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008117.1 Zygnema_circumcarinatum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008155.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008155.1 Oryza_sativa_Indica_Group</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008235.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008235.1 Populus_alba</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008289.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008289.1 Ostreococcus_tauri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008325.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008325.1 Daucus_carota</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008326.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008326.1 Liriodendron_tulipifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008334.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008334.1 Citrus_sinensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008335.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008335.1 Platanus_occidentalis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008336.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008336.1 Nandina_domestica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008359.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008359.1 Morus_indica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008372.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008372.1 Stigeoclonium_helveticum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008407.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008407.1 Jasminum_nudiflorum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008454.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008454.1 Pelargonium_x_hortorum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008456.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008456.1 Drimys_granadensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008457.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008457.1 Piper_cenocladum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008535.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008535.1 Coffea_arabica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008590.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008590.1 Hordeum_vulgare_subsp._vulgare</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008591.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008591.1 Agrostis_stolonifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008602.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008602.1 Sorghum_bicolor</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008641.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008641.1 Gossypium_barbadense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008788.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008788.1 Nuphar_advena</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008796.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008796.1 Ranunculus_macranthus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008822.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008822.1 Chlorokybus_atmophyticus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_008829.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_008829.1 Angiopteris_evecta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009143.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009143.1 Populus_trichocarpa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009259.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009259.1 Phaseolus_vulgaris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009265.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009265.1 Aethionema_cordifolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009266.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009266.1 Aethionema_grandiflorum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009267.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009267.1 Olimarabidopsis_pumila</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009268.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009268.1 Arabis_hirsuta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009269.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009269.1 Barbarea_verna</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009270.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009270.1 Capsella_bursa-pastoris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009271.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009271.1 Crucihimalaya_wallichii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009272.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009272.1 Draba_nemorosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009273.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009273.1 Lepidium_virginicum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009274.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009274.1 Lobularia_maritima</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009275.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009275.1 Nasturtium_officinale</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009598.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009598.1 Chloranthus_spicatus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009599.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009599.1 Buxus_microphylla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009600.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009600.1 Illicium_oligandrum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009601.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009601.1 Dioscorea_elephantipes</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009618.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009618.1 Cycas_taitungensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009681.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009681.1 Leptosira_terrestris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009765.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009765.1 Cuscuta_gronovii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009766.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009766.1 Cuscuta_reflexa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009808.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009808.1 Ipomoea_purpurea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009949.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009949.1 Cuscuta_obtusiflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009950.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009950.1 Lolium_perenne</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009962.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009962.1 Ceratophyllum_demersum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_009963.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_009963.1 Cuscuta_exaltata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010093.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010093.1 Acorus_americanus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010109.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010109.1 Lemna_minor</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010323.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010323.1 Carica_papaya</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010358.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010358.2 Oenothera_argillicola</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010359.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010359.1 Aneura_mirabilis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010360.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010360.2 Oenothera_glazioviana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010361.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010361.1 Oenothera_biennis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010362.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010362.1 Oenothera_parviflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010433.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010433.1 Manihot_esculenta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010442.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010442.1 Trachelium_caeruleum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010548.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010548.1 Cryptomeria_japonica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010601.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010601.1 Guizotia_abyssinica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010654.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010654.1 Welwitschia_mirabilis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_010776.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_010776.1 Fagopyrum_esculentum_subsp._ancestrale</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011031.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011031.1 Oedogonium_cardiacum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011032.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011032.1 Brachypodium_distachyon</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011152.3"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011152.3 Picea_sitchensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011153.4"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011153.4 Pinus_contorta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011154.4"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011154.4 Pinus_gerardiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011155.4"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011155.4 Pinus_krempfii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011156.4"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011156.4 Pinus_lambertiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011157.3"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011157.3 Pinus_longaeva</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011158.4"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011158.4 Pinus_monophylla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011159.4"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011159.4 Pinus_nelsonii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011163.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011163.1 Cicer_arietinum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011713.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011713.2 Festuca_arundinacea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011828.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011828.1 Trifolium_subterraneum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011930.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011930.1 Keteleeria_davidiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011942.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011942.1 Gnetum_parvifolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_011954.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_011954.1 Ephedra_equisetina</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012052.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012052.1 Syntrichia_ruralis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012097.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012097.1 Pycnococcus_provasolii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012099.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012099.1 Pyramimonas_parkeae</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012101.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012101.1 Monomastix_sp._OKE-1</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012224.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012224.1 Jatropha_curcas</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012575.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012575.1 Micromonas_sp._RCC299</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012615.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012615.1 Megaleranthis_saniculifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012818.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012818.1 Alsophila_spinulosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012927.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012927.1 Bambusa_oldhamii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_012978.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_012978.1 Parachlorella_kessleri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013088.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013088.1 Dendrocalamus_latiflorus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013273.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013273.1 Coix_lacryma-jobi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013359.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013359.1 Bryopsis_hypnoides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013553.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013553.1 Parthenium_argentatum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013707.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013707.2 Olea_europaea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013823.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013823.1 Typha_latifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013843.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013843.1 Vigna_radiata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_013991.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_013991.2 Phoenix_dactylifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014056.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014056.1 Oncidium_Gower_Ramsey</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014057.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014057.1 Pisum_sativum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014062.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014062.1 Anomochloa_marantoidea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014063.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014063.1 Lathyrus_sativus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014346.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014346.1 Floydiella_terrestris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014348.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014348.1 Pteridium_aquilinum_subsp._aquilinum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014570.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014570.1 Eucalyptus_grandis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014575.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014575.1 Cedrus_deodara</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014589.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014589.1 Cathaya_argyrophylla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014592.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014592.1 Cheilanthes_lindheimeri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014674.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014674.1 Castanea_mollissima</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014675.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014675.1 Isoetes_flaccida</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014676.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014676.2 Theobroma_cacao</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014697.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014697.1 Prunus_persica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014699.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014699.1 Equisetum_arvense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_014807.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_014807.1 Corynocarpus_laevigata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015083.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015083.1 Erodium_carvifolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015113.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015113.1 Anthriscus_cerefolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015139.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015139.1 Brassica_rapa_subsp._pekinensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015204.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015204.1 Gossypium_thurberi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015206.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015206.1 Fragaria_vesca_subsp._vesca</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015308.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015308.1 Hevea_brasiliensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015402.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015402.1 Ptilidium_pulcherrimum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015543.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015543.1 Jacobaea_vulgaris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015604.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015604.1 Olea_europaea_subsp._cuspidata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015605.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015605.1 Nelumbo_lutea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015608.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015608.1 Olea_woodiana_subsp._woodiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015621.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015621.1 Ageratina_adenophora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015623.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015623.1 Olea_europaea_subsp._maroccana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015645.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015645.1 Schizomeris_leibleinii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015817.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015817.1 Phyllostachys_edulis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015820.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015820.1 Acidosasa_purpurea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015826.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015826.1 Phyllostachys_nigra_var._henonis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015830.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015830.1 Bambusa_emeiensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015891.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015891.1 Spirodela_polyrhiza</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015892.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015892.1 Magnolia_kwangsiensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015894.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015894.1 Wolffiella_lingulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015899.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015899.1 Wolffia_australiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015983.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015983.1 Cucumis_melo_subsp._melo</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015990.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015990.1 Panicum_virgatum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_015996.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_015996.1 Pyrus_pyrifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016058.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016058.1 Larix_decidua</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016063.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016063.1 Cephalotaxus_wilsoniana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016064.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016064.1 Pseudotsuga_sinensis_var._wilsoniana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016065.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016065.1 Taiwania_cryptomerioides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016068.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016068.1 Nicotiana_undulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016069.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016069.1 Picea_morrisonicola</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016430.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016430.1 Eleutherococcus_senticosus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016433.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016433.2 Sesamum_indicum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016468.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016468.1 Boea_hygrometrica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016668.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016668.1 Gossypium_raimondii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016670.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016670.1 Gossypium_darwinii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016690.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016690.1 Gossypium_tomentosum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016692.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016692.1 Gossypium_herbaceum_subsp._africanum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016699.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016699.1 Phyllostachys_propinqua</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016708.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016708.2 Millettia_pinnata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016711.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016711.1 Gossypium_mustelinum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016712.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016712.1 Gossypium_arboreum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016727.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016727.1 Silene_vulgaris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016728.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016728.1 Silene_noctiflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016729.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016729.1 Silene_conica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016730.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016730.1 Silene_latifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016732.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016732.1 Dunaliella_salina</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016733.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016733.1 Pedinomonas_minor</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016734.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016734.1 Brassica_napus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016736.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016736.1 Ricinus_communis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016753.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016753.1 Colocasia_esculenta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016921.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016921.1 Pentactina_rupicola</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016927.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016927.1 Oryza_meridionalis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_016986.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_016986.1 Ginkgo_biloba</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_017006.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_017006.1 Mankyua_chejuensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_017602.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_017602.1 Elaeis_guineensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_017609.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_017609.1 Phalaenopsis_equestris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_017835.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_017835.1 Oryza_rufipogon</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_017894.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_017894.1 Gossypium_gossypioides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018051.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018051.1 Vigna_unguiculata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018109.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018109.1 Gossypium_incanum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018110.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018110.1 Gossypium_somalense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018111.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018111.1 Gossypium_capitis-viridis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018112.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018112.1 Gossypium_areysianum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018113.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018113.1 Gossypium_robinsonii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018114.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018114.1 Erycina_pusilla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018117.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018117.1 Datura_stramonium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018357.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018357.1 Magnolia_denudata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018541.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018541.1 Elodea_canadensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018552.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018552.1 Capsicum_annuum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018565.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018565.1 Pachycladon_enysii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018569.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018569.1 Trebouxiophyceae_sp._MX-AZ01</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_018766.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_018766.1 Fragaria_vesca_subsp._bracteata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_019601.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_019601.1 Fragaria_chiloensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_019602.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_019602.1 Fragaria_virginiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_019628.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_019628.1 Pellia_endiviifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020019.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020019.1 Camellia_sinensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020092.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020092.1 Chrysanthemum_x_morifolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020098.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020098.1 Tectona_grandis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020146.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020146.1 Equisetum_hyemale</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020147.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020147.1 Ophioglossum_californicum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020316.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020316.1 Magnolia_officinalis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020317.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020317.1 Magnolia_officinalis_subsp._biloba_voucher_SC001</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020318.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020318.1 Magnolia_grandiflora_voucher_NJ016</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020319.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020319.1 Cycas_revoluta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020320.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020320.1 Chrysanthemum_indicum_voucher_HeN001</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020321.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020321.1 Taxus_mairei_voucher_NN014</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020341.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020341.1 Arundinaria_gigantea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020361.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020361.1 Podocarpus_totara</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020372.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020372.1 Trithuria_inconspicua_complete</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020431.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020431.1 Salvia_miltiorrhiza</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020438.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020438.1 Gonium_pectorale</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_020607.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_020607.1 Artemisia_frigida</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021091.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021091.1 Vigna_angularis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021102.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021102.1 Pachycladon_cheesemanii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021110.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021110.1 Cephalotaxus_oliveri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021111.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021111.1 Cistanche_deserticola</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021121.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021121.1 Ardisia_polysticta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021372.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021372.1 Pharus_latifolius</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021423.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021423.1 Catharanthus_roseus_cultivar_Pacifica_Punch_Halo</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021425.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021425.1 Tetracentron_sinense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021426.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021426.1 Trochodendron_aralioides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021429.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021429.1 Cymbidium_aloifolium_voucher_KUN:YJB100604</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021430.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021430.1 Cymbidium_sinense_voucher_KUN:YJB100605</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021431.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021431.1 Cymbidium_tortisepalum_voucher_KUN:HJL091027</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021432.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021432.1 Cymbidium_tracyanum_voucher_KUN:YJB100606</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021433.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021433.1 Cymbidium_mannii_voucher_KUN:YJB100602</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021437.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021437.1 Cunninghamia_lanceolata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021438.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021438.1 Gnetum_montanum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021439.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021439.1 Pinus_massoniana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021440.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021440.1 Pinus_taeda</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021441.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021441.1 Taiwania_flousiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021449.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021449.1 Utricularia_gibba</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021456.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021456.1 Picea_abies</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021636.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021636.1 Glycine_tomentella_voucher_CSIRO:G1403</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021645.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021645.1 Glycine_cyrtoloba_voucher_CSIRO:G1267</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021646.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021646.1 Glycine_stenophita_voucher_CSIRO:G1974</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021647.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021647.1 Glycine_canescens_voucher_CSIRO:G1232</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021648.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021648.1 Glycine_dolichocarpa_voucher_CSIRO:G1134</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021649.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021649.1 Glycine_falcata_voucher_CSIRO:G1718</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021650.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021650.1 Glycine_syndetika_voucher_CSIRO:G1300</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021760.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021760.1 Triticum_monococcum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021761.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021761.1 Secale_cereale</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021762.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021762.1 Triticum_urartu</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_021936.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_021936.1 Najas_flexilis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022133.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022133.1 Aegilops_tauschii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022135.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022135.1 Aegilops_speltoides_isolate_SPE0661</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022136.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022136.1 Lygodium_japonicum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022137.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022137.1 Marsilea_crenata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022264.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022264.1 Camellia_taliensis_voucher_HKAS:S.X.Yang3157</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022378.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022378.1 Eucalyptus_obliqua</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022379.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022379.1 Eucalyptus_radiata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022380.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022380.1 Eucalyptus_delegatensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022381.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022381.1 Eucalyptus_verrucata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022382.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022382.1 Eucalyptus_baxteri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022383.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022383.1 Eucalyptus_diversifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022384.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022384.1 Eucalyptus_sieberi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022385.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022385.1 Eucalyptus_elata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022386.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022386.1 Eucalyptus_regnans</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022387.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022387.1 Eucalyptus_umbra</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022388.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022388.1 Eucalyptus_cloeziana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022389.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022389.1 Eucalyptus_patens</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022390.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022390.1 Eucalyptus_marginata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022391.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022391.1 Eucalyptus_curtisii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022392.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022392.1 Eucalyptus_melliodora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022393.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022393.1 Eucalyptus_polybractea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022394.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022394.1 Eucalyptus_cladocalyx</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022395.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022395.1 Eucalyptus_nitens</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022396.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022396.1 Eucalyptus_aromaphloia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022397.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022397.1 Eucalyptus_saligna</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022398.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022398.1 Eucalyptus_camaldulensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022399.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022399.1 Eucalyptus_deglupta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022400.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022400.1 Eucalyptus_spathulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022401.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022401.1 Eucalyptus_torquata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022402.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022402.1 Eucalyptus_diversicolor</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022403.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022403.1 Eucalyptus_salmonophloia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022404.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022404.1 Eucalyptus_microcorys</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022405.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022405.1 Eucalyptus_guilfoylei</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022406.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022406.1 Eucalyptus_erythrocorys</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022407.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022407.1 Corymbia_gummifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022408.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022408.1 Corymbia_maculata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022409.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022409.1 Corymbia_eximia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022410.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022410.1 Corymbia_tessellaris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022411.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022411.1 Angophora_floribunda</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022412.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022412.1 Angophora_costata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022413.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022413.1 Allosyncarpia_ternata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022414.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022414.1 Stockwellia_quadrifida</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022417.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022417.1 Cocos_nucifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022431.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022431.1 Asclepias_nivea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022432.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022432.1 Asclepias_syriaca</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022451.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022451.2 Andrographis_paniculata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022457.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022457.1 Berberis_bealei</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022459.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022459.1 Camellia_cuspidata_voucher_HKAS:S.X.Yang3159</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022460.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022460.1 Camellia_danzaiensis_voucher_HKAS:S.X.Yang3147</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022461.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022461.1 Camellia_impressinervis_voucher_HKAS:S.X.Yang1080</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022462.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022462.1 Camellia_pitardii_voucher_HKAS:S.X.Yang3148</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022463.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022463.1 Camellia_yunnanensis_voucher_HKAS:S.X.Yang1090</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022715.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022715.2 Veratrum_patulum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022810.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022810.1 Aralia_undulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022811.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022811.1 Brassaiopsis_hainla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022812.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022812.1 Metapanax_delavayi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022813.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022813.1 Schefflera_delavayi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022814.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022814.1 Kalopanax_septemlobus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022859.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022859.1 Lindenbergia_philippensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022868.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022868.1 Glycine_soja</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_022958.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_022958.1 Phragmites_australis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023085.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023085.1 Sedum_sarmentosum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023086.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023086.1 Penthorum_chinense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023090.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023090.1 Lupinus_luteus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023092.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023092.1 Liquidambar_formosana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023096.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023096.1 Aegilops_cylindrica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023097.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023097.1 Aegilops_geniculata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023115.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023115.1 Schwalbea_americana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023119.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023119.1 Agathis_dammara</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023120.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023120.1 Nageia_nagi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023121.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023121.1 Calocedrus_formosana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023132.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023132.1 Phelipanche_purpurea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023213.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023213.1 Gossypium_anomalum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023214.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023214.1 Gossypium_bickii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023215.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023215.1 Gossypium_herbaceum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023216.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023216.1 Gossypium_longicalyx</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023217.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023217.1 Gossypium_stocksii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023218.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023218.1 Gossypium_sturtianum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023234.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023234.1 Magnolia_cathcartii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023236.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023236.1 Magnolia_pyramidata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023237.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023237.1 Magnolia_kobus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023238.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023238.1 Magnolia_liliifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023239.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023239.1 Michelia_odora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023240.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023240.1 Magnolia_salicifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023241.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023241.1 Magnolia_sinica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023242.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023242.1 Magnolia_sprengeri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023245.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023245.1 Pharus_lappulaceus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023247.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023247.1 Fritillaria_taipaiensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023260.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023260.1 Hypseocharis_bilobata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023261.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023261.1 Pelargonium_alternans</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023357.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023357.1 Agrostemma_githago</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023358.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023358.1 Silene_conoidea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023359.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023359.1 Silene_chalcedonica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023360.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023360.1 Silene_paradoxa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023367.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023367.1 Arabis_alpina_complete</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023449.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023449.1 Puelia_olyriformis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023463.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023463.1 Pinguicula_ehlersiae</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023464.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023464.1 Orobanche_gracilis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023465.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023465.1 Phelipanche_ramosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023775.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023775.1 Auxenochlorella_protothecoides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023790.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023790.1 Vitis_rotundifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023792.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023792.1 Azadirachta_indica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023800.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023800.1 Sorghum_timorense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023801.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023801.1 Castanopsis_echinocarpa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023805.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023805.1 Podocarpus_lambertii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023833.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023833.1 Praxelis_clematidea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023835.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023835.1 Chlorella_sorokiniana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023934.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023934.1 Arundinaria_appalachiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023935.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023935.1 Arundinaria_tecta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023956.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023956.1 Prunus_kansuensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_023959.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_023959.1 Trigonobalanus_doichangensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024019.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024019.1 Dendrobium_officinale</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024021.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024021.1 Juniperus_bermudiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024022.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024022.1 Juniperus_monosperma</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024023.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024023.1 Juniperus_scopulorum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024024.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024024.1 Juniperus_virginiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024038.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024038.1 Glycyrrhiza_glabra</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024060.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024060.1 Hirtella_racemosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024061.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024061.1 Chrysobalanus_icaco</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024062.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024062.1 Licania_heteromorpha</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024063.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024063.1 Couepia_guianensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024064.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024064.1 Licania_alba</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024065.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024065.1 Licania_sprucei</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024066.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024066.1 Hirtella_physophora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024067.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024067.1 Parinari_campestris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024106.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024106.1 Lecomtella_madagascariensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024157.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024157.1 Osmundastrum_cinnamomeum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024158.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024158.1 Diplopterygium_glaucum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024166.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024166.1 Trifolium_meduseum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024167.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024167.1 Klebsormidium_flaccidum_culture-collection_SAG:121.8</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024168.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024168.1 Roya_anglica_culture-collection_ACOI:799</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024169.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024169.1 Mesotaenium_endlicherianum_culture-collection_SAG:12.97</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024262.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024262.1 Neyraudia_reynaudiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024286.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024286.1 Centaurea_diffusa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024291.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024291.1 Tetraphis_pellucida</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024421.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024421.1 Cypripedium_macranthos</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024541.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024541.1 Camellia_crapnelliana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024542.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024542.1 Nymphaea_mexicana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024543.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024543.1 Primula_poissonii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024544.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024544.1 Calanthe_triplicata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024545.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024545.1 Magnolia_yunnanensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024608.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024608.1 Oryza_australiensis_isolate_86524</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024643.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024643.2 Echinochloa_oryzicola</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024659.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024659.1 Camellia_grandibracteata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024660.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024660.1 Camellia_leptophylla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024661.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024661.1 Camellia_petelotii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024662.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024662.1 Camellia_pubicosta</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024663.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024663.1 Camellia_reticulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024668.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024668.1 Bambusa_multiplex</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024669.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024669.1 Phyllostachys_sulphurea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024681.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024681.1 Salix_interior_isolate_BPL-EX1</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024712.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024712.1 Arundinaria_fargesii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024713.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024713.1 Sarocalamus_faberi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024714.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024714.1 Chimonocalamus_longiusculus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024715.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024715.1 Fargesia_nitida</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024716.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024716.1 Fargesia_spathacea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024717.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024717.1 Fargesia_yunnanensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024718.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024718.1 Gaoligongshania_megalothyrsa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024719.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024719.1 Gelidocalamus_tessellatus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024720.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024720.1 Indocalamus_wilsonii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024721.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024721.1 Indosasa_sinica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024722.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024722.1 Oligostachyum_shiuyingianum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024723.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024723.1 Pleioblastus_maculatus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024724.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024724.1 Thamnocalamus_spathiflorus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024725.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024725.1 Yushania_levigata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024728.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024728.1 Fritillaria_cirrhosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024732.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024732.1 Hanabusaya_asiatica_voucher_Yoo86859</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024734.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024734.1 Populus_fremontii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024735.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024735.1 Populus_balsamifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024736.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024736.1 Fritillaria_hupehensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024747.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024747.1 Populus_euphratica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024764.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024764.1 Triticum_timopheevii_cultivar_Tim01</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024811.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024811.1 Bathycoccus_prasinos</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024813.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024813.1 Allium_cepa_genotype_normal_(N)_male_fertile</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024814.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024814.1 Triticum_turgidum_cultivar_TA2836</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024815.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024815.1 Aegilops_searsii_cultivar_TA1837</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024816.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024816.1 Aegilops_sharonensis_cultivar_TA1995</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024817.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024817.1 Prasinoderma_coloniale_culture-collection_CCMP:1220</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024827.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024827.1 Retrophyllum_piresii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024828.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024828.1 Picocystis_salinarum_culture-collection_CCMP:1897</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024829.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024829.1 Nephroselmis_astigmatica_culture-collection_NIES:252</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024830.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024830.1 Aegilops_longissima_cultivar_TA1924</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024831.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024831.1 Aegilops_bicornis_cultivar_Clae57</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024832.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024832.1 Aegilops_kotschyi_cultivar_TA1980</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024845.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024845.1 Orobanche_crenata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024929.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024929.1 Citrus_aurantiifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_024945.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_024945.1 Amentotaxus_formosana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025288.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025288.1 Macadamia_integrifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025333.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025333.1 Luzuriaga_radicans</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025339.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025339.1 Nelumbo_nucifera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025524.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025524.1 Dictyochloropsis_reticulata_culture-collection_SAG:2150</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025525.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025525.1 Myrmecia_israelensis_culture-collection_UTEX:1181</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025526.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025526.1 Watanabea_reniformis_culture-collection_SAG:211-9b</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025527.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025527.1 Stichococcus_bacillaris_culture-collection_UTEX:176</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025528.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025528.1 'Chlorella'_mirabilis_culture-collection_SAG:38.88</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025529.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025529.1 Pabia_signiensis_culture-collection_SAG:7.90</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025530.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025530.1 Pedinomonas_tuberculata_culture-collection_SAG:42.84</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025531.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025531.1 Koliella_longiseta_culture-collection_UTEX:339</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025532.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025532.1 Ettlia_pseudoalveolaris_culture-collection_UTEX:975</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025533.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025533.1 Lobosphaera_incisa_culture-collection_SAG:2007</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025534.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025534.1 Xylochloris_irregularis_culture-collection_CAUP&lt;CZH&gt;:H7801</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025535.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025535.1 Neocystis_brevis_culture-collection_CAUP&lt;CZH&gt;:D802</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025536.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025536.1 Koliella_corcontica_culture-collection_SAG:24.84</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025537.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025537.1 Microthamnion_kuetzingianum_culture-collection_UTEX:318</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025538.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025538.1 Gloeotilopsis_sterilis_culture-collection_UTEX:1704</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025539.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025539.1 Choricystis_parasitica_culture-collection_SAG:17.98</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025540.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025540.1 Paradoxia_multiseta_culture-collection_SAG:18.84</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025541.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025541.1 Planctonema_lauterbornii_culture-collection_SAG:68.94</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025542.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025542.1 Interfilum_terricola_culture-collection_SAG:20.91</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025543.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025543.1 Fusochloris_perforata_culture-collection_SAG:28.85</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025544.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025544.1 Geminella_minor_culture-collection_SAG:22.88</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025545.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025545.1 Botryococcus_braunii_culture-collection_SAG:807-1</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025546.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025546.1 Dicloster_acuatus_culture-collection_SAG:41.98</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025547.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025547.1 Pseudochloris_wilhelmii_culture-collection_SAG:1.80</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025548.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025548.1 Elliptochloris_bilobata_culture-collection_CAUP&lt;CZH&gt;:H7103</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025549.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025549.1 Marvania_geminata_culture-collection_SAG:12.88</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025554.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025554.1 Sapindus_mukorossi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025593.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025593.1 Phalaenopsis_hybrid_cultivar_cultivar_Tiny_Star</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025651.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025651.1 Orobanche_californica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025652.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025652.1 Genlisea_margaretae</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025653.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025653.1 Utricularia_macrorhiza</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025668.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025668.1 Sanionia_uncinata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025743.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025743.1 Trifolium_boissieri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025744.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025744.1 Trifolium_glanduliferum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025745.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025745.1 Trifolium_strictum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025772.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025772.2 Morus_mongolica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025787.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025787.1 Hesperelaea_palmeri_complete</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025910.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025910.1 Artemisia_montana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_025955.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_025955.1 Triticum_macha</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026036.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026036.1 Bowenia_serrulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026037.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026037.1 Ceratozamia_hildae</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026040.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026040.1 Zamia_furfuracea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026041.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026041.1 Stangeria_eriopus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026065.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026065.1 Sedum_takesimense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026076.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026076.1 Paeonia_obovata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026134.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026134.2 Acacia_ligulata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026203.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026203.1 Campanula_takesimana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026212.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026212.1 Orthotrichum_rogeri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026220.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026220.1 Ananas_comosus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026291.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026291.1 Premna_microphylla</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026447.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026447.1 Panax_notoginseng</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026462.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026462.1 Salix_suchowensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026541.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026541.1 Masdevallia_coccinea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026546.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026546.1 Dendropanax_dentiger_voucher_DDENT20141207</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026551.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026551.1 Capsicum_lycianthoides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026562.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026562.1 Cannabis_sativa_cultivar_Carmagnola</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026563.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026563.1 Dunalia_obovata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026565.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026565.1 Chloranthus_japonicus_voucher_CJCP20141206</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026567.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026567.1 Iochroma_nitidum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026568.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026568.1 Cattleya_crispata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026574.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026574.1 Iochroma_stenanthum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026690.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026690.1 Actinidia_chinensis_isolate_AC-2</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026691.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026691.1 Actinidia_deliciosa_isolate_AD-4</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026694.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026694.1 Saracha_punctata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026703.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026703.1 Ipomoea_batatas_cultivar_Xushu_18</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026726.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026726.1 Iochroma_loxense</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026772.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026772.1 Cypripedium_formosanum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026773.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026773.1 Goodyera_fumata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026775.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026775.1 Habenaria_pantlingiana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026776.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026776.1 Paphiopedilum_niveum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026777.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026777.1 Masdevallia_picturata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026778.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026778.1 Vanilla_planifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026779.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026779.1 Paphiopedilum_armeniacum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026785.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026785.1 Campynema_lineare_voucher_K:Duretto,_M.F.:1842</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026786.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026786.1 Carludovica_palmata_voucher_K:Chase,_M.W.:14836</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026787.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026787.1 Lilium_superbum_voucher_NCU:Chase,_M._W.:112</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026790.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026790.1 Quercus_aliena</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026795.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026795.1 Bryopsis_plumosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026796.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026796.1 Tydemania_expeditionis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026835.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026835.1 Gossypium_turneri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026839.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026839.1 Lonicera_japonica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026847.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026847.1 Erodium_absinthoides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026876.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026876.1 Solanum_cheesmaniae_isolate_TS-199</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026877.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026877.1 Solanum_chilense_isolate_TS-408</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026878.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026878.1 Solanum_galapagense_isolate_TS-208</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026879.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026879.1 Solanum_habrochaites_isolate_TS-407</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026880.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026880.1 Solanum_neorickii_isolate_TS-146</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026881.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026881.1 Solanum_peruvianum_isolate_TS-404</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026882.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026882.1 Solanum_pimpinellifolium_isolate_TS-415</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026892.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026892.1 Abies_koreana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026906.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026906.1 Dunalia_brachyacantha</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026907.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026907.1 Quercus_spinosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026909.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026909.1 Hibiscus_syriacus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026913.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026913.1 Quercus_aquifolioides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026979.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026979.1 Nyholmiella_obtusifolia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026980.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026980.1 Prunus_yedoensis_isolate_2014-P1</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026981.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026981.1 Prunus_maximowiczii_isolate_2014-P4</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026982.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026982.1 Prunus_padus_isolate_2014-P17</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_026999.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_026999.1 Adenophora_remotiflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027065.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027065.1 Erodium_chrysanthum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027073.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027073.1 Lathyrus_davidii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027074.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027074.1 Lathyrus_graminifolius</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027075.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027075.1 Lathyrus_japonicus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027076.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027076.1 Lathyrus_littoralis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027077.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027077.1 Lathyrus_ochroleucus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027078.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027078.1 Lathyrus_palustris</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027079.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027079.1 Lathyrus_pubescens</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027080.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027080.1 Lathyrus_venosus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027090.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027090.1 Dioscorea_zingiberensis_voucher_DZING20150203V3</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027099.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027099.1 Dunalia_solanacea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027110.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027110.1 Morus_notabilis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027113.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027113.1 Cynara_humilis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027146.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027146.1 Sartidia_perrieri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027147.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027147.1 Sartidia_dewinteri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027148.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027148.1 Lathyrus_clymenum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027149.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027149.1 Lathyrus_inconspicuus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027150.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027150.1 Lathyrus_odoratus_cultivar_Cupani</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027151.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027151.1 Lathyrus_tingitanus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027152.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027152.1 Lens_culinaris_cultivar_Northfield</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027153.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027153.1 Medicago_hybrida</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027154.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027154.1 Medicago_papillosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027155.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027155.1 Vicia_sativa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027158.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027158.1 Xerophyllum_tenax</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027159.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027159.1 Heloniopsis_tubiflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027161.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027161.1 Fagopyrum_tataricum_strain_Daegwan3-3</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027177.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027177.1 Iochroma_tingoanum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027184.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027184.1 Chikusichloa_aquatica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027224.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027224.1 Salicornia_brachiata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027225.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027225.1 Salicornia_europaea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027226.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027226.1 Salicornia_bigelovii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027235.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027235.1 Wollemia_nobilis_voucher_AF20030492AC</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027259.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027259.1 Rosmarinus_officinalis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027262.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027262.1 Scutellaria_baicalensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027266.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027266.1 Elleanthus_sodiroi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027272.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027272.1 Dieffenbachia_seguine</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027276.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027276.1 Podococcus_barteri</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027415.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027415.1 Pinus_taiwanensis_voucher_Ptaiwanensis14</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027423.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027423.1 Metasequoia_glyptostroboides</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027425.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027425.1 Populus_tremula_clone_W52</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027434.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027434.1 Aster_spathulifolius</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027441.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027441.1 Gentiana_straminea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027442.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027442.1 Gentiana_crassicaulis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027456.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027456.1 Panax_quinquefolius</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027460.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027460.1 Oryza_barthii_isolate_103590</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027461.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027461.1 Oryza_glumipatula</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027462.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027462.1 Oryza_longistaminata_isolate_103905</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027463.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027463.1 Oryza_officinalis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027511.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027511.1 Macrozamia_mountperriensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027512.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027512.1 Dioon_spinulosum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027513.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027513.1 Lepidozamia_peroffskyana</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027514.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027514.1 Encephalartos_lehmannii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027581.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027581.1 Amentotaxus_argotaenia</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027607.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027607.1 Dendropanax_morbifer</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027618.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027618.1 Carnegiea_gigantea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027650.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027650.1 Sporobolus_maritimus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027659.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027659.1 Sciaphila_densiflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027668.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027668.1 Haloxylon_ammodendron</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027669.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027669.1 Haloxylon_persicum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027674.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027674.1 Lilium_hansonii</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027675.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027675.1 Lilium_tsingtauense_voucher_KNU_IT_No._121054-1_from_South_Korea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027676.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027676.1 Oryza_punctata_voucher_GEN1233_2</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027677.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027677.1 Wisteria_floribunda_voucher_IRGC105690</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027678.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027678.1 Oryza_sativa_cultivar_Milyang23_voucher_WAB0028987_from_South_Korea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027679.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027679.1 Lilium_sp._KHK-2014</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027681.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027681.1 Pinellia_ternata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027685.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027685.1 Fatsia_japonica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027691.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027691.1 Dendrobium_strongylanthum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027693.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027693.1 Capsella_rubella</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027728.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027728.1 Rheum_palmatum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027732.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027732.1 Sinopodophyllum_hexandrum_voucher_SHEX20150512</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027743.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027743.1 Cymbidium_faberi</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027824.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027824.1 Alloteropsis_semialata_isolate_ATSS837</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027829.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027829.1 Viscum_minimum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027834.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027834.1 Bupleurum_falcatum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027835.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027835.1 Leontopodium_leiolepis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027837.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027837.1 Sedum_oryzifolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027838.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027838.1 Lathraea_squamaria</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027939.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027939.1 Zanthoxylum_piperitum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027941.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027941.1 Piper_kadsura</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027951.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027951.1 Alloteropsis_angusta_isolate_3C</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027952.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027952.1 Alloteropsis_cimicina_isolate_RCH20</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027954.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027954.1 Epipremnum_aureum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027955.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027955.1 Tanaecium_tetragonolobum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027959.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027959.1 Viscum_crassulae_voucher_C2553</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_027960.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_027960.1 Osyris_alba_voucher_C2883</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028000.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028000.1 Clematis_terniflora</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028005.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028005.1 Cynara_baetica</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028006.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028006.1 Cynara_cornigera</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028007.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028007.1 Capsicum_frutescens</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028009.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028009.1 Morinda_officinalis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028012.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028012.1 Viscum_album_voucher_C2546</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028023.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028023.1 Larrea_tridentata</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028027.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028027.1 Silybum_marianum_voucher_SMAR20150709</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028032.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028032.1 Humulus_lupulus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028051.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028051.1 Pelargonium_dichondrifolium</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028052.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028052.1 Pelargonium_cotyledonis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028053.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028053.1 Pelargonium_australe</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028066.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028066.1 Elaeagnus_macrophylla_voucher_YNUH_EMC001</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028067.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028067.1 Euonymus_japonicus_voucher_YNUH_DD_001</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028069.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028069.2 Solanum_commersonii_strain_Lz3.2</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028070.2"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028070.2 Solanum_nigrum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028073.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028073.1 Machilus_yunnanensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028074.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028074.1 Machilus_balansae</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028075.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028075.1 Setaria_viridis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028080.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028080.1 Colobanthus_quitensis</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028147.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028147.1 Sobralia_callosa_voucher_Whitten_3275</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028149.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028149.1 Phragmipedium_longifolium_voucher_Whitten_2804</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028155.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028155.1 Cupressus_gigantea_voucher_Cglanxian-2015</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028170.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028170.1 Eutrema_salsugineum</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028171.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028171.1 Astragalus_nakaianus</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028185.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028185.1 Ficus_racemosa</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028190.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028190.1 Juniperus_cedrus_voucher_JCED20150806</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028209.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028209.1 Sobralia_aff._bouchei_HTK-2015</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028272.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028272.1 Brassica_juncea</a></div>
+<div class="fa-hover"><a href="cpdata.php?id=NC_028328.1"><i class='fa fa-folder-o' aria-hidden='true'></i> NC_028328.1 Pseudosasa_japonica_isolate_Pjc-1_cultivar_akebonosuji</a></div>
+
+
+</div>
+
+
+<p>689 Spcecies listed in CPDB, updated in 2016-08-27.</p>
+Report to <a href="mailto:yiqingxu@njfu.edu.cn">web master</a> now.
+
+</div>
+ <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Becky 2015-2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="https://www.researchgate.net/profile/Yiqing_Xu3"><i class="fa fa-graduation-cap"></i></a>
+                        </li>
+                        <li><a href="mailto:yiqingxu@njfu.edu.cn"><i class="fa fa-envelope"></i></a>
+                        </li>
+                        <li><a href="https://scholar.google.com/citations?user=HNYpuGYAAAAJ&hl=zh-CN"><i class="fa fa-google"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="http://bio.njfu.edu.cn">BIO.NJFU</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+</html>
