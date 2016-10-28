@@ -1,0 +1,217 @@
+/* reset */
+body,form,h1,h2,h3,h4,h5,ul,ol,li,dl,dt,dd,p,input,textarea,table,th,td,iframe{margin:0;padding:0}
+body,input,textarea{font-size:12px;font-family:microsoft yahei}
+input,textarea{outline:none;}
+textarea{ resize:none;}
+ul,ol{list-style:none}
+img{border:0}
+button,input {line-height:normal;*overflow:visible}
+a{ text-decoration:none; cursor:pointer;}
+
+body{
+	background-color: #fbf5ea;
+}
+
+
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+
+ul,li{
+	
+	list-style:none;
+}
+
+#Carousel{
+	
+	position:relative;
+	width: 980px;
+	height: 500px;
+	overflow: hidden; /*保证高度宽度不变*/
+	
+}
+.imglist{
+	
+	position:absolute;
+	width: 3920px;
+	overflow:hidden;
+
+}
+.imglist li{
+	float:left;;
+	display:inline;
+	width: 980px;
+	
+}
+
+.infolist{
+	font-family:Arial,Verdana,Sans-serif;
+	position:absolute;
+	left:10px;
+	bottom:5px;
+	z-index:30;
+
+	
+}
+
+.infolist li{
+	
+	display:none;
+}
+
+.infolist .infoOn{
+	display:inline;
+	opacity:0.8;
+	filter:alpha(opacity=80);
+	color:#fff;
+}
+
+.indexlist{
+	
+	position:absolute;
+	right:10px;
+	bottom:5px;
+	z-index:30;
+	}
+	
+.indexlist li{
+	
+	float:left;
+	margin-right:5px;
+	padding:2px 4px;
+	border: none;
+	width:16px;
+	height:16px;
+	line-height:16px;
+	text-align:center;
+	background: #ebeae6;
+	cursor:pointer;
+	opacity:0.8;
+	filter:alpha(opacity=80);
+
+	
+}
+
+.indexlist li:hover{
+	opacity:1;
+	filter:alpha(opacity=100);
+	
+}
+
+.indexlist .indexOn{
+	
+	background:#ccbbab;
+	font-weight:bold;
+	color:#fff;
+}
+
+
+#search_box{
+	
+	background:white;
+	opcity: 0.8; /*不透明度*/
+	text-align:right;
+	margin-top: 6px;
+	z-index: 1;
+	background-color: #fff;
+}
+
+#searchstr{
+	font-size:14px；
+	height:20px;
+	width:150px;
+
+	
+}
+#search_btn{
+	background: #0b5866;
+	margin-top:6px;
+	border-radius: 2px;
+	border: 0px;
+	width: 100px;
+	line-height: 24px;
+	color:white;
+
+	
+}
+.highlight{
+	
+
+	background: #0b5866;
+	color:white;
+}
+.prelight { 
+	background: blue; 
+	color: white; 
+	}
+
+#tip { 
+	display: none;
+	position: absolute;
+	background: #312e2e;
+	border: 1px solid #312e2e; 
+	font-family: Arial,Geneva,Sans-serif;
+	width: auto; 
+	height:35px;
+	text-align: center;  
+	display: block;; 
+	font-size: 12px;
+	color:#fff;
+	margin:0,auto;
+	border-radius: 4px;
+	padding:8px 6px;
+	box-shadow: 0px 0px 10px #575353;
+
+	
+	}
+	
+.insect-list{
+	
+	margin-top: 22px;
+	overflow: hidden;;
+}
+
+.insect-list .fa-hover a {
+	overflow: hidden;
+	text-overflow:ellipsis;/*用省略号代表被修剪的文本*/
+	white-space:nowrap;/*文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。*/
+	display:block; /*让对象成为块元素*/
+	color:#222222;
+	line-height:32px;
+	height:32px;
+	padding-left:10px;
+	border-radius:4px;/*圆角*/
+	}
+
+
+.insect-list .fa-hover a:hover{
+	background-color:#1d9d74;
+	color:#ffffff;
+	text-decoration: none;
+    white-space: normal;
+	word-wrap: break-word;
+	height: auto;
+	line-height: 16px;
+	}
+	
+
+
+.insect-list .fa-hover a:hover .fa{
+	font-size:32px;
+	
+	}
+
+
+footer{
+
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding: 10px;
+	z-index: 0;
+	background-color: #fff;
+	bottom: 0px;
+
+}
